@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-grayish-blue-50: hsl(217, 19%, 35%, 0.5);
+  --very-dark-grayish-blue-70: hsl(217, 19%, 35%, 0.7);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+
+  --light-gray: hsl(0, 0%, 81%);
+  --light-gray-50: hsl(0, 0%, 81%, 0.5);
+  --light-gray-70: hsl(0, 0%, 81%, 0.7);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+
+  --font-family-barlow: "Barlow Semi Condensed", sans-serif;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 4rem 20rem;
+
+  background-color: var(--light-grayish-blue);
+
+  font-family: var(--font-family-barlow);
+  font-weight: var(--font-weight-500);
+  font-size: 1.32rem;
+}
+
+.grid {
+  max-width: 120rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-areas:
+    "card-purple"
+    "card-grey"
+    "card-white-small"
+    "card-black"
+    "card-white-large";
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-areas:
+      "card-purple card-purple card-purple card-purple card-grey card-white-large"
+      "card-white-small card-black card-black card-black card-black card-white-large";
+  }
+}
+
+.grid__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  padding: 3.5rem;
+}
+
+.card__header {
+  display: grid;
+  align-items: center;
+  column-gap: 1rem;
+  grid-template-columns: max-content max-content;
+  grid-template-areas:
+    "icon title"
+    "icon subtitle";
+}
+
+.commenter__picture {
+  grid-area: icon;
+  width: 4rem;
+  height: 4rem;
+  border: 0.2rem solid var(--light-gray-50);
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.commenter__name {
+  grid-area: title;
+  color: var(--light-gray);
+}
+
+.commenter__status {
+  grid-area: subtitle;
+  color: var(--light-gray-50);
+}
+
+.comment__summary {
+  font-weight: var(--font-weight-600);
+  font-size: 2.08rem;
+  line-height: 1.25;
+  letter-spacing: 0.03rem;
+  color: var(--white);
+}
+
+.comment__detail {
+  color: var(--light-gray-70);
+  font-weight: var(--font-weight-600);
+  line-height: 1.5;
+  letter-spacing: 0.03rem;
+}
+
+.card-purple {
+  grid-area: card-purple;
+  background-color: var(--moderate-violet);
+}
+
+.card-grey {
+  grid-area: card-grey;
+  background-color: var(--very-dark-grayish-blue);
+}
+
+.card-white-large {
+  grid-area: card-white-large;
+  background-color: var(--white);
+  color: black;
+}
+
+.card-white-large .commenter__name {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card-white-large .commenter__status {
+  color: var(--very-dark-grayish-blue-50);
+}
+
+.card-white-large .comment__summary {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card-white-large .comment__detail {
+  color: var(--very-dark-grayish-blue-70);
+}
+
+.card-white-small {
+  grid-area: card-white-small;
+  background-color: var(--white);
+}
+
+.card-white-small .comment__summary {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card-white-small .commenter__name {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card-white-small .commenter__status {
+  color: var(--very-dark-grayish-blue-50);
+}
+
+.card-white-small .comment__detail {
+  color: var(--very-dark-grayish-blue-70);
+}
+
+.card-black {
+  grid-area: card-black;
+  background-color: var(--very-dark-blackish-blue);
+}
