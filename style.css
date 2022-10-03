@@ -32,7 +32,7 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  padding: 4rem 20rem;
+  padding: 10rem 20rem;
 
   background-color: var(--light-grayish-blue);
 
